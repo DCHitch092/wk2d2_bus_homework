@@ -22,9 +22,14 @@ class TestBusClass  < MiniTest::Test
   end
 
   def test_total_passengers
-    assert_equal(0,@bus.passengers.length())
+    assert_equal(0,@bus.total_passengers())
   end
 
+  def test_pickup
+    @bus.pickup(@person1)
+    result = @bus.total_passengers()
+    assert_equal(1,result)
+  end
 
 
 

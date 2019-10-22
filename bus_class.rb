@@ -11,5 +11,13 @@ class Bus
   def drive
     return "vroom vroom"
   end
+
+  def total_passengers
+    return @passengers.length
+  end
+
+  def pickup(person)
+    @passengers.push(person)
+  end
   
 end
