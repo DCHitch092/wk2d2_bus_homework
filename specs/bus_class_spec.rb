@@ -6,6 +6,8 @@ require_relative('../person_class')
 class TestBusClass  < MiniTest::Test
 
   def setup
+    @person1 = Person.new("Satan",69)
+    @person2 = Person.new("Einstein",87)
     @bus = Bus.new(666, "Hell")
   end
 
@@ -25,11 +27,21 @@ class TestBusClass  < MiniTest::Test
     assert_equal(0,@bus.total_passengers())
   end
 
-  def test_pickup
-    @bus.pickup(@person1)
+  def test_pick_up
+    @bus.pick_up(@person2)
     result = @bus.total_passengers()
     assert_equal(1,result)
   end
+
+  def test_drop_off
+    @bus.pick_up(@person1)
+    @bus.pick_up(@person2)
+    @bus.drop_off(@person1)
+    result = @bus.total_passengers()
+    assert_equal(1, result)
+  end
+
+
 
 
 
